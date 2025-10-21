@@ -1,0 +1,178 @@
+本地翻译={
+["Speed Hub X | Version : 4.0.4"] = "LYX汉化",
+    ["Target Rebirths"] = "重生到指定",
+    ["Auto Rebirths On Target Rebirths"] = "开始重生",
+    ["Rebirths"] = "重生",
+    ["Speed Hub X | Version : 4.0.4"] = "LYX自己汉化",
+    ["Are you sure you want to unload the interface?"] = "你他妈确定要退出",
+    ["Yes"] = "跑路喽😂",
+    ["No"] = "不跑了🤕",
+    ["CIose"] = "正在犹豫要不要跑路",      
+    ["Home"] = "家",
+    ["Discord"] = "不知名蓝色软件",
+    ["Discord lnvite"] = "神秘蓝色软件链接",
+    ["Set WalkSpeed"] = "设定速度",
+    ["Enable WalkSpeed"] = "开启速度",
+    ["Main"] = "主要",
+    ["Rebirths"] = "重生",
+    ["Killer"] = "击杀",
+    ["Crystal"] = "钻石",
+    ["Status"] = "状态", 
+    ["Infinite Jump"] = "无限跳",
+    ["Size"] = "尺寸",
+    ["Size Amount"] = "大小金额",
+    ["Auto Set Size"] = "自动设置大小",
+    ["Select City Gym"] = "选择城市健身房",
+    ["Select Gym"] = "选择健身房",
+    ["Frost"] = "霜",
+    ["Auto Farm On Select Gym"] = "选择健身房上的自动农场",
+    ["Auto Farm Weight"] = "自动农场重量", 
+    ["Auto Farm Pushups"] = "自动俯卧撑",     
+    ["Farming Kill"] = "农业杀戮",
+    ["Select Whitelist"] = "选择白名单",
+    ["Refresh Select Whitelist"] = "刷新白名单选择",
+    ["Choose Mode Kill"] = "选择击杀模式",
+    ["Auto Kill"] = "自动击杀",
+    ["Auto Kill Evil Karma"] = "自动击杀邪恶阵营",
+    ["Auto Kill Good Karma"] = "自动击杀善良阵营",
+    ["Farming Kill Player"] = "挂机击杀玩家",
+    ["Select Player"] = "选择玩家",
+    ["Refresh Select Player"] = "刷新玩家选择",
+    ["Auto Kill Player"] = "自动击杀玩家",
+    ["Spectate Player"] = "观战玩家",
+    ["Select Crystal"] = "选择水晶",
+    ["Auto Open Crystal"] = "自动开启水晶",
+    ["Shop Pets"] = "商店宠物",
+    ["Select Pets"] = "选择宠物",
+      ["Lock Position"] = "锁定位置",
+    ["Anti-Knockback"] = "抗击退",
+    ["Walk On Water"] = "在水上行走",
+    ["Faster Tool"] = "更快的工具",
+    ["Set Faster Weight"] = "设置更快的权重",
+    ["Brawl"] = "拳击比赛🤓",
+    ["Auto Join Brawl"] = "自动加入比赛",
+    ["Auto Win Brawl"] = "自动赢得比赛",
+    ["Auto Farm Situps"] = "自动仰卧起坐",
+    ["Auto Farm Punch"] = "自动出拳",
+    ["-[Faster Tool]-"] = "更快的工具",
+    ["Set Faster Pushups"] = "设置更快的俯卧撑",
+    ["Set Faster Pushups"] = "设置更快的仰卧起坐",
+    ["Set Faster Punch"] = "设置更快的出拳",
+    ["Auto Claim Gift Free"] = "自动领取免费礼物",
+    ["Farming Gym"] = "健身房挂机",
+    ["Mystical"] = "神秘（健身房）",
+    ["Eternal"] = "永恒（健身房）",
+    ["Legends"] = "传奇 (健身房) ",
+    ["Muscle King"] = "肌肉之王（健身房）",
+    ["Jungle Gym"] = "丛林 (健身房) ",
+    ["Farming General"] = "挂机通用🤔",
+    ["in progress..."] = "进行中...",
+    ["Auto 重生"] = "自动重生",
+    ["Misc 重生"] = "其他重生",
+    ["Anti-Teleport If Rebirthed [BETA]"] = "重生时防传送 [测试版]",
+    ["Anti-重生"] = "防重生",
+    ["Miscellaneous"] = "其他"
+}
+
+local keys = {}
+for k in pairs(Translations) do
+    table.insert(keys, k)
+end
+table.sort(
+    keys,
+    function(a, b)
+        return #a > #b
+    end
+)
+
+local function safeReplace(text, old, new)
+    local result = ""
+    local start = 1
+    while true do
+        local i, j = string.find(text, old, start, true)
+        if not i then
+            result = result .. string.sub(text, start)
+            break
+        end
+        result = result .. string.sub(text, start, i - 1) .. new
+        start = j + 1
+    end
+    return result
+end
+
+local function translateText(text)
+    if not text or type(text) ~= "string" then
+        return text
+    end
+    for _, k in ipairs(keys) do
+        text = safeReplace(text, k, Translations[k])
+    end
+    return text
+end
+
+local oldNewIndex
+oldNewIndex =
+    hookmetamethod(
+    game,
+    "__newindex",
+    function(self, key, value)
+        if key == "Text" and type(value) == "string" then
+            value = translateText(value)
+        end
+        return oldNewIndex(self, key, value)
+    end
+)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+}
+
+local keys = {}
+for k in pairs(Translations) do
+    table.insert(keys, k)
+end
+table.sort(
+    keys,
+    function(a, b)
+        return #a > #b
+    end
+)
+
+local function safeReplace(text, old, new)
+    local result = ""
+    local start = 1
+    while true do
+        local i, j = string.find(text, old, start, true)
+        if not i then
+            result = result .. string.sub(text, start)
+            break
+        end
+        result = result .. string.sub(text, start, i - 1) .. new
+        start = j + 1
+    end
+    return result
+end
+
+local function translateText(text)
+    if not text or type(text) ~= "string" then
+        return text
+    end
+    for _, k in ipairs(keys) do
+        text = safeReplace(text, k, Translations[k])
+    end
+    return text
+end
+
+local oldNewIndex
+oldNewIndex =
+    hookmetamethod(
+    game,
+    "__newindex",
+    function(self, key, value)
+        if key == "Text" and type(value) == "string" then
+            value = translateText(value)
+        end
+        return oldNewIndex(self, key, value)
+    end
+)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
